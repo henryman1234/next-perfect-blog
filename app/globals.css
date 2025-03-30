@@ -1,26 +1,98 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-primary-pink : #EE2B69;
+  --color-little-pink: #ffe8f0;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer utilities {
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  .text-30-semibold {
+    @apply text-black font-semibold text-[30px]
   }
+
+  .flex-between {
+    @apply flex justify-between items-center
+  }
+
+  .text-16-medium {
+    @apply font-medium text-black text-[16px]
+  }
+
+  .text-26-semibold {
+    @apply font-medium text-[26px] text-black
+  }
+
+  .heading {
+    @apply uppercase bg-black text-white px-3 py-3  font-extrabold sm:text-[54px] sm:leading-[64px] text-[36px] leading-[46px] max-w-5xl text-center my-5;
+  }
+
+  .pink_container {
+    @apply bg-primary-pink flex flex-col justify-center items-center px-6 py-10 w-full px-6 py-10 min-h-[536px]  ;
+  }
+
+  .pattern {
+    background-image: linear-gradient(
+            to right,
+            transparent 49.5%,
+            rgba(251, 232, 67, 0.2) 49.5%,
+            rgba(251, 232, 67, 0.6) 50.5%,
+            transparent 50.5%
+    );
+    background-size: 5% 100%;
+    background-position: center;
+    background-repeat: repeat-x;
+  }
+
+  .sub-heading {
+    @apply font-medium text-[20px] text-white max-w-2xl text-center break-words
+  }
+
+  .search-form {
+    @apply rounded-[80px] mt-8 flex bg-white border-[5px]  border-black  px-5 w-full max-w-3xl min-h-[80px] flex-row items-center gap-5                                                   ;
+  }
+
+  .search-input {
+    @apply flex-1 text-[28px] font-bold placeholder:font-semibold w-full h-auto outline-none;
+  }
+
+  .search-btn {
+    @apply size-[50px] rounded-full bg-black flex justify-center items-center ;
+  }
+  .section_container {
+    @apply px-6 py-10 mx-auto max-w-7xl
+  }
+
+  .card_grid {
+    @apply grid md:grid-cols-3 sm:grid-cols-2 gap-5
+  }
+
+  /* StartupCard */
+  .startup-card {
+    @apply bg-white border-[5px] border-black py-6 px-5 rounded-[22px] transition-all duration-500 shadow-xl hover:border-primary-pink hover:bg-little-pink
+  }
+
+  .startup_card_date {
+    @apply font-medium text-[16px] bg-little-pink px-4 py-2 rounded-full
+    group-hover:bg-white
+  }
+
+  .startup-card_desc {
+    @apply break-all font-normal my-3 line-clamp-2 text-[16px] text-black
+  }
+
+  .startup-card_img {
+    @apply object-cover h-[164px] w-full rounded-[10px]
+  }
+
+  .startup-card_btn {
+    @apply px-5 py-3 rounded-full font-medium bg-black text-white text-[16px]
+  }
+
+
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+
